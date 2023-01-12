@@ -46,8 +46,7 @@ func separateStringAndNumber(name string) (letters, numbers string) {
 	return string(l), string(n)
 }
 
-func stringutils(url string) {
-	JsonData, _ := os.Open(url)
+func stringutils(JsonData *os.File) {
 	byteData, _ := ioutil.ReadAll(JsonData)
 	defer JsonData.Close()
 	json.Unmarshal(byteData, &testInfo)
@@ -56,5 +55,4 @@ func stringutils(url string) {
 		strVale, numValue := separateStringAndNumber(testInfo[i].Name)
 		fmt.Println(strconv.Itoa(i+1)+ordinalValue, "name is ", strVale, numValue)
 	}
-
 }
