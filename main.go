@@ -46,7 +46,7 @@ func separateStringAndNumber(name string) (letters, numbers string) {
 	return string(l), string(n)
 }
 
-func stringutils(JsonData *os.File) {
+func Stringutils(JsonData *os.File) {
 	byteData, _ := ioutil.ReadAll(JsonData)
 	defer JsonData.Close()
 	json.Unmarshal(byteData, &testInfo)
